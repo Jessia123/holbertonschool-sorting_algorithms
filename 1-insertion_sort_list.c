@@ -6,8 +6,6 @@
  * @list: double linked list to be sorted
  * Return: void
  */
-
-
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *temp = NULL;
@@ -27,10 +25,13 @@ void insertion_sort_list(listint_t **list)
 			temp->next = temp->prev;
 			temp->prev = temp->prev->prev;
 			temp->next->prev = temp;
+			
+			/* Update head of the list if necessary */
 			if (!temp->prev)
 				*list = temp;
 			else
 				temp->prev->next = temp;
+
 			print_list(*list);
 		}
 		temp = temp->next;
