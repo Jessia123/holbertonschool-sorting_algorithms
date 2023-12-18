@@ -32,6 +32,9 @@ listint_t *create_listint(const int *array, size_t size)
     }
     return (list);
 }
+#include <stdio.h>
+#include <stdlib.h>
+#include "sort.h"
 
 /**
  * main - Entry point
@@ -47,10 +50,15 @@ int main(void)
     list = create_listint(array, n);
     if (!list)
         return (1);
+
+    printf("Original list: ");
     print_list(list);
-    printf("\n");
+
+    printf("\nSorting the list...\n");
     insertion_sort_list(&list);
-    printf("\n");
+
+    printf("\nSorted list: ");
     print_list(list);
+
     return (0);
 }
